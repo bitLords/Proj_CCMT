@@ -7,12 +7,7 @@ package views;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -42,13 +37,14 @@ public class fileUpload extends javax.swing.JFrame {
         importFileTextField = new java.awt.TextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextAreaFileContent = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        buttonCS = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         upload_btn = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        label1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -64,10 +60,10 @@ public class fileUpload extends javax.swing.JFrame {
         TextAreaFileContent.setRows(5);
         jScrollPane1.setViewportView(TextAreaFileContent);
 
-        jButton2.setText("Control Structure");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonCS.setText("Control Structure");
+        buttonCS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonCSActionPerformed(evt);
             }
         });
 
@@ -93,6 +89,8 @@ public class fileUpload extends javax.swing.JFrame {
 
         jButton7.setText("View Report");
 
+        label1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,8 +98,9 @@ public class fileUpload extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(buttonCS)
                         .addGap(76, 76, 76)
                         .addComponent(jButton3)
                         .addGap(77, 77, 77)
@@ -123,7 +122,9 @@ public class fileUpload extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(importFileTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(upload_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,7 +132,7 @@ public class fileUpload extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCS, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,7 +149,19 @@ public class fileUpload extends javax.swing.JFrame {
 
     private void labeldisplay(){
         String text1= TextAreaFileContent.getText();
-       // label.setText(text1);
+        //label1.setText(text1);
+    }
+    
+    int weight = 0;
+    
+    private void calculateCSMeasure(int weight){
+        
+        String codeText = TextAreaFileContent.getText();
+        
+        while(codeText.contains("if")){
+            weight++;
+            label1.setText(Integer.toString(weight));
+        }
     }
     
     private void importFileTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importFileTextFieldActionPerformed
@@ -170,6 +183,7 @@ public class fileUpload extends javax.swing.JFrame {
             br.close();
             TextAreaFileContent.requestFocus();
             labeldisplay();
+            calculateCSMeasure(weight);
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -177,9 +191,12 @@ public class fileUpload extends javax.swing.JFrame {
 
     }//GEN-LAST:event_upload_btnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void buttonCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCSActionPerformed
+        
+        CSMeasure i = new CSMeasure();
+        i.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_buttonCSActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
@@ -227,15 +244,16 @@ public class fileUpload extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaFileContent;
+    private javax.swing.JButton buttonCS;
     private java.awt.TextField importFileTextField;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label1;
     private javax.swing.JButton upload_btn;
     // End of variables declaration//GEN-END:variables
 }
