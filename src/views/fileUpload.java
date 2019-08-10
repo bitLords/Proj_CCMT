@@ -249,7 +249,7 @@ public class fileUpload extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TextAreaFileContent;
+    public static javax.swing.JTextArea TextAreaFileContent;
     private javax.swing.JButton buttonCS;
     private java.awt.TextField importFileTextField;
     private javax.swing.JButton jButton1;

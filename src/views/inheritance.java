@@ -16,6 +16,7 @@ public class inheritance extends javax.swing.JFrame {
      */
     public inheritance() {
         initComponents();
+        count_inheritance();
     }
 
     /**
@@ -28,33 +29,124 @@ public class inheritance extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        back_btn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        label_get = new javax.swing.JLabel();
+        count_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(737, 618));
 
         jLabel1.setText("This is Inheritance  Page!");
+
+        back_btn.setText("Back");
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Inheritance count : ");
+
+        label_get.setText("jLabel2");
+
+        count_lbl.setText("count");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(back_btn)
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(jLabel1)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(77, 77, 77)
+                                .addComponent(count_lbl))
+                            .addComponent(label_get, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(57, 57, 57)
+                .addComponent(back_btn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(count_lbl))
+                .addGap(30, 30, 30)
+                .addComponent(label_get, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
+        fileUpload file = new fileUpload();
+        file.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_back_btnActionPerformed
+
+    
+     public void count_inheritance(){
+        
+//         fileUpload file = new fileUpload();
+//         String s1 = fileUpload.TextAreaFileContent.getText();
+        
+        String s1= "class 1425 c 25 ghnh class 74 das class";
+         String s2 = "class";
+         
+         //String s3= count_lbl.getText();
+         
+         int count = 0;
+         for(int j=0;j<s1.length();j++)
+         {
+             for(int k=0;k<s2.length();)
+             {
+                 if(s2.charAt(k)==s1.charAt(j))
+                 {
+                     k++;
+                     j++;
+                 }
+                 else
+                 {
+                     k=0;
+                     for(int g=j;g<s1.length();g++)
+                     {
+                         if(s1.charAt(g)== ' ')
+                         {
+                             j=g+1;
+                             break;
+                         }
+                         if(g==s1.length()-1)
+                         {
+                             k = s2.length()+10; //random num more than s2 length
+                             j = s1.length() +10;
+                         }
+                    }
+                    if(k==s2.length())
+                     count++;
+                }
+            }
+             System.out.println(s1);
+             System.out.println(s2);
+            System.out.println("num is: "+count);
+            count_lbl.setText(s2);
+         }
+    }
     /**
      * @param args the command line arguments
      */
@@ -91,6 +183,10 @@ public class inheritance extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back_btn;
+    private javax.swing.JLabel count_lbl;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel label_get;
     // End of variables declaration//GEN-END:variables
 }
