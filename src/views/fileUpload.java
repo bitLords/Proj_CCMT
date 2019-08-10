@@ -107,6 +107,11 @@ public class fileUpload extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-email-26.png"))); // NOI18N
         jButton6.setText("Send Email");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(255, 51, 51));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -268,6 +273,13 @@ public class fileUpload extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        EmailSender ES = new EmailSender();
+        ES.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
