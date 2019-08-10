@@ -5,6 +5,9 @@
  */
 package views;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author Tharaka
@@ -16,7 +19,7 @@ public class inheritance extends javax.swing.JFrame {
      */
     public inheritance() {
         initComponents();
-        count_inheritance();
+        inter_count();
     }
 
     /**
@@ -31,13 +34,19 @@ public class inheritance extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         back_btn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        label_get = new javax.swing.JLabel();
         count_lbl = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cci_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("This is Inheritance  Page!");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel1.setText("{Measuring the complexity of a program due to Inheritance}");
 
+        back_btn.setBackground(new java.awt.Color(255, 51, 51));
+        back_btn.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        back_btn.setForeground(new java.awt.Color(255, 255, 255));
+        back_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-go-back-24.png"))); // NOI18N
         back_btn.setText("Back");
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,49 +54,58 @@ public class inheritance extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Inheritance count : ");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Inheritance count in a program (Ci) : ");
 
-        label_get.setText("jLabel2");
+        count_lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        count_lbl.setText("ci");
 
-        count_lbl.setText("count");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Inheritance count in a program (CCi) : ");
+
+        cci_lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cci_lbl.setText("cci");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(back_btn)
-                .addGap(85, 85, 85))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addGap(114, 114, 114)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(77, 77, 77)
-                                .addComponent(count_lbl))
-                            .addComponent(label_get, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(82, 82, 82)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(count_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cci_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel1)))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(back_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(123, 123, 123)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(99, 99, 99)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(count_lbl))
-                .addGap(30, 30, 30)
-                .addComponent(label_get, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(cci_lbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -99,16 +117,33 @@ public class inheritance extends javax.swing.JFrame {
         file.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_back_btnActionPerformed
-
+   
+    public void inter_count(){
+        
+        String n = fileUpload.TextAreaFileContent.getText();
+        //String n = "I can class my fog class tharaka class";
+        int i =0;
+        int x;
+        Pattern p = Pattern.compile("extends");
+        Matcher m = p.matcher(n);
+        while(m.find()){
+            i++;
+        }
+        x = i +1;
+        String s1 = String.valueOf(i);
+        String s2 = String.valueOf(x);
+        count_lbl.setText(s1);
+        cci_lbl.setText(s2);
+    }
     
-     public void count_inheritance(){
+    
+    public void count_inheritance(){
         
-//         fileUpload file = new fileUpload();
-//         String s1 = fileUpload.TextAreaFileContent.getText();
+//       fileUpload file = new fileUpload();
+//       String s1 = fileUpload.TextAreaFileContent.getText();
         
-        String s1= "class 1425 c 25 ghnh class 74 das class";
+         String s1= "class 1425 c 25 ghnh class 74 das class";
          String s2 = "class";
-         
          //String s3= count_lbl.getText();
          
          int count = 0;
@@ -141,10 +176,6 @@ public class inheritance extends javax.swing.JFrame {
                      count++;
                 }
             }
-             System.out.println(s1);
-             System.out.println(s2);
-            System.out.println("num is: "+count);
-            count_lbl.setText(s2);
          }
     }
     /**
@@ -184,9 +215,10 @@ public class inheritance extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_btn;
+    private javax.swing.JLabel cci_lbl;
     private javax.swing.JLabel count_lbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel label_get;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
