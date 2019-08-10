@@ -5,6 +5,10 @@
  */
 package views;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import static views.fileUpload.TextAreaFileContent;
+
 /**
  *
  * @author Lakshan
@@ -16,6 +20,7 @@ public class CSMeasure extends javax.swing.JFrame {
      */
     public CSMeasure() {
         initComponents();
+        calculateControStructureComplexity();
     }
 
     /**
@@ -27,22 +32,295 @@ public class CSMeasure extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        labelSimpleIf = new javax.swing.JLabel();
+        ifCombinedLabel = new javax.swing.JLabel();
+        labelFor = new javax.swing.JLabel();
+        labelWhile = new javax.swing.JLabel();
+        labelDowhile = new javax.swing.JLabel();
+        whileCombinedLabel = new javax.swing.JLabel();
+        labelCatch = new javax.swing.JLabel();
+        labelSwitch = new javax.swing.JLabel();
+        nestLabel = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        totalCSLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("Weight on  simple If condition");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Weight on if condition with && || & | operators");
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Weight on switch statements");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Weight on catch statements");
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("Weight on for while do while combined with && || & | operators");
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Weight on for");
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel7.setText("Weight on while");
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("Weight on do while");
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel9.setText("weight on nesting control statements");
+
+        labelSimpleIf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSimpleIf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        ifCombinedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ifCombinedLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelFor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelFor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelWhile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelWhile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelDowhile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelDowhile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        whileCombinedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        whileCombinedLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelCatch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCatch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelSwitch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSwitch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        nestLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nestLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel10.setText("Total Complexity of Control Structure in the code");
+
+        totalCSLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalCSLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addGap(37, 37, 37))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelSimpleIf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ifCombinedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelFor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelWhile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelDowhile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(whileCombinedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelCatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelSwitch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(totalCSLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(backButton)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelSimpleIf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ifCombinedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(labelFor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelWhile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelDowhile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(whileCombinedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(totalCSLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        fileUpload file = new fileUpload();
+        file.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    public void calculateControStructureComplexity(){
+    
+        int weight = 0;
+        
+        String codeText = fileUpload.TextAreaFileContent.getText();
+        int wordCount = codeText.split("\\s+").length;
+        String []codeArray = new String[wordCount];
+        codeArray = codeText.split("\\s+");
+        
+        //int ifCount = codeText.split("if").length;
+        
+        //if
+        int ifCount = 0;
+        Pattern p = Pattern.compile("if");
+        Matcher m = p.matcher( codeText );
+        while (m.find()) {
+            ifCount++;
+        }
+        System.out.println("if Count : " + ifCount); 
+        labelSimpleIf.setText(Integer.toString(ifCount));
+        
+        //for
+        int forCount = 0;
+        Pattern p1 = Pattern.compile("for");
+        Matcher m1 = p1.matcher( codeText );
+        while (m1.find()) {
+            forCount = forCount + 2;
+        }
+        System.out.println("for Count : " + forCount); 
+        labelFor.setText(Integer.toString(forCount));
+        
+        //while
+        int whileCount = 0;
+        Pattern p2 = Pattern.compile("while");
+        Matcher m2 = p2.matcher( codeText );
+        while (m2.find()) {
+            whileCount = whileCount + 2;
+        }
+        System.out.println("while Count : " + whileCount); 
+        labelWhile.setText(Integer.toString(whileCount));
+        
+        //do-while
+        int doWhileCount = 0;
+        Pattern p3 = Pattern.compile("do");
+        Matcher m3 = p3.matcher( codeText );
+        while (m3.find()) {
+            doWhileCount = doWhileCount + 2;
+        }
+        
+        System.out.println("Do-while Count : " + doWhileCount); 
+        labelDowhile.setText(Integer.toString(doWhileCount));
+        
+        //catch
+        int catchCount = 0;
+        Pattern p4 = Pattern.compile("catch");
+        Matcher m4 = p4.matcher( codeText );
+        while (m4.find()) {
+            catchCount++;
+        }
+        
+        System.out.println("Catch Count : " + catchCount); 
+        labelCatch.setText(Integer.toString(catchCount));
+        
+        //switch-case
+        int switchCount = 0;
+        Pattern p5 = Pattern.compile("case");
+        Matcher m5 = p5.matcher( codeText );
+        while (m5.find()) {
+            switchCount++;
+        }
+        
+        System.out.println("Switch Count : " + switchCount); 
+        labelSwitch.setText(Integer.toString(switchCount));
+        
+         //if &&
+        //int ifAndCount = 0;
+        
+        //if ||
+        //int ifOrCount = 0;
+        
+        //if &
+        //int ifAndBitWiseCount = 0;
+        
+        //if |
+        //int ifOrBitWiseCount = 0;
+        
+        //ifCombined
+        int ifCombinedCount = 0;
+        ifCombinedLabel.setText(Integer.toString(ifCombinedCount));
+        
+        //while do-while && || & | \\
+        int whileCombinedCount = 0;
+        whileCombinedLabel.setText(Integer.toString(whileCombinedCount));
+        
+        //nestingCount
+        int nestCount = 0;
+        nestLabel.setText(Integer.toString(nestCount));
+        
+        int totalComplexityCS = ifCount + forCount + whileCount + doWhileCount + catchCount + switchCount + ifCombinedCount +
+                whileCombinedCount + nestCount;
+        totalCSLabel.setText(Integer.toString(totalComplexityCS));
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +357,26 @@ public class CSMeasure extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel ifCombinedLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel labelCatch;
+    private javax.swing.JLabel labelDowhile;
+    private javax.swing.JLabel labelFor;
+    private javax.swing.JLabel labelSimpleIf;
+    private javax.swing.JLabel labelSwitch;
+    private javax.swing.JLabel labelWhile;
+    private javax.swing.JLabel nestLabel;
+    private javax.swing.JLabel totalCSLabel;
+    private javax.swing.JLabel whileCombinedLabel;
     // End of variables declaration//GEN-END:variables
 }
