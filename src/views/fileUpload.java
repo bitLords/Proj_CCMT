@@ -158,7 +158,13 @@ public class fileUpload extends javax.swing.JFrame {
         
         String codeText = TextAreaFileContent.getText();
         
-        while(codeText.contains("if")){
+//        for (int i = 0; i < codeText.length(); i++){
+//                if()codeText.contains("if"){
+//                weight++;
+//            }
+//        }
+        
+        if(codeText.contains("if")){
             weight++;
             label1.setText(Integer.toString(weight));
         }
